@@ -48,17 +48,6 @@
                     "action": "movement",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "8f01ddc8-bd8e-45bf-9db3-8ba7ae94ac0e",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "keyboard",
-                    "action": "movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
