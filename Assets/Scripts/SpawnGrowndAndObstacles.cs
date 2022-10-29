@@ -9,17 +9,29 @@ public class SpawnGrowndAndObstacles : MonoBehaviour
     public GameObject groundPrefab;
     public GameObject player;
     public int rangeSpawn;
-    public GameObject[] enviromentObjects;
-    Vector3 currentGroundPosition;
+    public GameObject tree;
+    public int crowd;
+ 
 
-  
+    private Vector3 currentGroundPosition;
+    public GameObject[] obstaclesPrefab;
+    int countLines;
+    Vector3 obstaclesPosition;
+    int countObstaclesLine;
+    float xpos;
+    float lastXpos;
+    float nowXpos;
+    GameObject currentObstacle;
+    float lastObstacleScaleX;
     // Start is called before the first frame update
     void Start()
     {
-        
         currentGroundPosition = groundPrefab.transform.position;
         currentGroundPosition.z = currentGroundPosition.z + rangeSpawn;
-        Debug.Log(currentGroundPosition);
+        obstaclesPosition = player.transform.position;
+        obstaclesPosition.y = -0.4f;
+        obstaclesPosition.z = obstaclesPosition.z + groundPrefab.transform.localScale.z;
+        countLines = (int) (groundPrefab.transform.localScale.z / crowd);
         
         
     }
@@ -31,8 +43,45 @@ public class SpawnGrowndAndObstacles : MonoBehaviour
         if(player.transform.position.z > currentGroundPosition.z)
         {
             CreateRoad();
-            CreeateEnviroment(20,(int)currentGroundPosition.z,80,(int)groundPrefab.transform.localScale.z,enviromentObjects[0]);
-            CreeateEnviroment(-100,(int)currentGroundPosition.z,80,(int)groundPrefab.transform.localScale.z,enviromentObjects[0]);
+            CreeateEnviroment(20,(int)currentGroundPosition.z,80,(int)groundPrefab.transform.localScale.z,tree);
+            CreeateEnviroment(-100,(int)currentGroundPosition.z,80,(int)groundPrefab.transform.localScale.z,tree);
+ 
+            
+    
+            for (int j = 0; j < countLines; j++)
+            {
+                
+                
+                countObstaclesLine = Range(1,4);
+                
+                for (int i = 0; i < countObstaclesLine; i++)
+                {
+                        
+                    
+                    nowXpos = Range(-20,20);
+                    currentObstacle = obstaclesPrefab[Range(0,obstaclesPrefab.Length)];
+                    
+                    if( Math.Abs(nowXpos-lastXpos) > (5 - currentObstacle.transform.localScale.x) * 2f + 1){
+                        
+                        obstaclesPosition.x = nowXpos; 
+                        
+                        Instantiate(currentObstacle, new Vector3(obstaclesPosition.x,obstaclesPosition.y,obstaclesPosition.z + Range(-6,6)), Quaternion.identity);
+                        lastXpos = obstaclesPosition.x;
+                       
+                    }
+                    else
+                    {
+                        i -= 1;
+                    }
+                    
+                    
+                    obstaclesPosition.z = obstaclesPosition.z + (crowd/2);
+                    
+                   
+                }
+                 
+       
+            }
         }
         
         
@@ -45,7 +94,8 @@ public class SpawnGrowndAndObstacles : MonoBehaviour
         currentGroundPosition.z = currentGroundPosition.z - Math.Abs(rangeSpawn); 
     }
 
-    void CreeateEnviroment(int x, int z, int a , int b, GameObject obj) {
+    void CreeateEnviroment(int x, int z, int a , int b, GameObject obj) 
+    {
         // x,z = кординати області в якій треба генерувати об`єкти (по нижньому лівому краю)
         //a,b - розмір області
         Vector3 pos;
@@ -58,4 +108,5 @@ public class SpawnGrowndAndObstacles : MonoBehaviour
 
         
     }
+
 }
