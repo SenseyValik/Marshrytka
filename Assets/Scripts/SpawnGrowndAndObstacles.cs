@@ -31,8 +31,8 @@ public class SpawnGrowndAndObstacles : MonoBehaviour
         if(player.transform.position.z > currentGroundPosition.z)
         {
             CreateRoad();
-            CreeateEnviroment(20,(int)currentGroundPosition.z,100,200,enviromentObjects[0]);
-            CreeateEnviroment(-100,(int)currentGroundPosition.z,80,200,enviromentObjects[0]);
+            CreeateEnviroment(20,(int)currentGroundPosition.z,80,(int)groundPrefab.transform.localScale.z,enviromentObjects[0]);
+            CreeateEnviroment(-100,(int)currentGroundPosition.z,80,(int)groundPrefab.transform.localScale.z,enviromentObjects[0]);
         }
         
         
@@ -49,7 +49,7 @@ public class SpawnGrowndAndObstacles : MonoBehaviour
         // x,z = кординати області в якій треба генерувати об`єкти (по нижньому лівому краю)
         //a,b - розмір області
         Vector3 pos;
-        int count = Range(10,20);
+        int count = Range(30,50);
         for (int i = 0; i < count; i++)
         {
             pos = new Vector3(Range(x,x+a),obj.transform.position.y,Range(z,z+b));
