@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    [SerializeField]
+    GameObject controlHint;
     public float HorizontalInput { private set; get; }
     void Start()
     {
