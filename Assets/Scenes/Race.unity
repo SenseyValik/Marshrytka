@@ -2137,6 +2137,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.107
       objectReference: {fileID: 0}
+    - target: {fileID: 8158263667319137316, guid: d0438dd4a19f33f498aa8539da82711b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3aba3b73d600e24488f919df5b919505, type: 2}
     - target: {fileID: 8158263667319137318, guid: d0438dd4a19f33f498aa8539da82711b, type: 3}
       propertyPath: m_Name
       value: Plane
