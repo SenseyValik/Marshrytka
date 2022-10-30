@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Bus : MonoBehaviour
 {
-    PlayerInputHandler PlayerInputHandler;
-    void Start()
+    public Rigidbody rigidbody;
+    public float speed = 50f;
+    public float rotationSpeed = 10f;
+    void Awake()
     {
-        PlayerInputHandler = GameObject.Find("InputHandler").GetComponent<PlayerInputHandler>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        float horizontalMovementInput = PlayerInputHandler.HorizontalInput;
-        if (horizontalMovementInput > 0) Debug.Log("D");
-        else if (horizontalMovementInput < 0) Debug.Log("A");
+        rigidbody.AddForce(0, 0, speed);
     }
-}   
+}
