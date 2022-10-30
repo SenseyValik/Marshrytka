@@ -16,14 +16,20 @@ public class EasySuspension : MonoBehaviour {
     public Rigidbody rigidBody;
     public float speed = float.MaxValue;
     public float rotationSpeed = 10f;
+
+    FuelSystem fuelSystem;
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        fuelSystem = GetComponent<FuelSystem>();
     }
 
     void Update () {
-		// work out the stiffness and damper parameters based on the better spring model
-		foreach (WheelCollider wc in GetComponentsInChildren<WheelCollider>()) {
+        UpdateFuel();
+        if (fuelSystem.currentFuel <= 0)
+            return;
+        // work out the stiffness and damper parameters based on the better spring model
+        foreach (WheelCollider wc in GetComponentsInChildren<WheelCollider>()) {
 			JointSpring spring = wc.suspensionSpring;
 
 			spring.spring = Mathf.Pow(Mathf.Sqrt(wc.sprungMass) * naturalFrequency, 2);
@@ -48,21 +54,26 @@ public class EasySuspension : MonoBehaviour {
         //rigidBody.AddRelativeTorque(0f, sideForce, 0f);
     }
 
-// uncomment OnGUI to observe how parameters change
+    void UpdateFuel()
+    {
+        fuelSystem.ReduceFuel();
+    }
 
-/*
-	public void OnGUI()
-	{
-		foreach (WheelCollider wc in GetComponentsInChildren<WheelCollider>()) {
-			GUILayout.Label (string.Format("{0} sprung: {1}, k: {2}, d: {3}", wc.name, wc.sprungMass, wc.suspensionSpring.spring, wc.suspensionSpring.damper));
-		}
+    // uncomment OnGUI to observe how parameters change
 
-		var rb = GetComponent<Rigidbody> ();
+    /*
+        public void OnGUI()
+        {
+            foreach (WheelCollider wc in GetComponentsInChildren<WheelCollider>()) {
+                GUILayout.Label (string.Format("{0} sprung: {1}, k: {2}, d: {3}", wc.name, wc.sprungMass, wc.suspensionSpring.spring, wc.suspensionSpring.damper));
+            }
 
-		GUILayout.Label ("Inertia: " + rb.inertiaTensor);
-		GUILayout.Label ("Mass: " + rb.mass);
-		GUILayout.Label ("Center: " + rb.centerOfMass);
-	}
-*/
+            var rb = GetComponent<Rigidbody> ();
+
+            GUILayout.Label ("Inertia: " + rb.inertiaTensor);
+            GUILayout.Label ("Mass: " + rb.mass);
+            GUILayout.Label ("Center: " + rb.centerOfMass);
+        }
+    */
 
 }
