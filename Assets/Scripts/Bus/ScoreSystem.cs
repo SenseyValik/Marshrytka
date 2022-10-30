@@ -21,16 +21,30 @@ public class ScoreSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateScore();
     }
 
-    void UpdateScore()
+    public void UpdateScore()
     {
         int difference = (int)(transform.position.z - lastPosition);
+        print(difference);
         if (difference > 0)
         {
             currentScore += difference;
+            lastPosition = transform.position.z;
             scoreIndicatorText.text = "Score: " + currentScore;
         }
+    }
+
+    public void SaveScoreIfHigher(int score)
+    {
+        int maxScore = GetMaxScore();
+        if (score > maxScore)
+            PlayerPrefs.SetInt("maxScore", score);
+    }
+
+    public int GetMaxScore()
+    {
+        return PlayerPrefs.GetInt("maxScore", 0);
     }
 }

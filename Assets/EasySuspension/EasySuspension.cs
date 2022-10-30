@@ -18,16 +18,20 @@ public class EasySuspension : MonoBehaviour {
     public float rotationSpeed = 10f;
 
     FuelSystem fuelSystem;
+    ScoreSystem scoreSystem;
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         fuelSystem = GetComponent<FuelSystem>();
+        scoreSystem = GetComponent<ScoreSystem>();
     }
 
     void Update () {
         UpdateFuel();
         if (fuelSystem.currentFuel <= 0)
-            return;
+        {
+            scoreSystem.SaveScoreIfHigher(scoreSystem.currentScore);
+        }
         // work out the stiffness and damper parameters based on the better spring model
         foreach (WheelCollider wc in GetComponentsInChildren<WheelCollider>()) {
 			JointSpring spring = wc.suspensionSpring;
