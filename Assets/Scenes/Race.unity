@@ -455,16 +455,16 @@ MonoBehaviour:
   groundPrefab: {fileID: 1875214871}
   groundModelPrefab: {fileID: 1555244096}
   player: {fileID: 199903577}
-  rangeSpawn: -180
+  rangeSpawn: 0
   trees:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3645177786438761741, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
+  - {fileID: 919132149155446097, guid: df1ea600c740dbe4d84e925eac2603fc, type: 3}
+  - {fileID: 919132149155446097, guid: a3aa35421b4bf2344a189c030c2b8663, type: 3}
   crowd: 60
   obstaclesPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 919132149155446097, guid: f65eabc3926cf2e4a99287c04949c08b, type: 3}
+  - {fileID: 919132149155446097, guid: 7999292afb227a1428dd03be14cf9814, type: 3}
+  - {fileID: 919132149155446097, guid: fa6be316c0dcf234bb2f4cc4b63ac22d, type: 3}
   firstObjects: {fileID: 1841661225}
   treeSpawn: 30
 --- !u!1001 &227278941
