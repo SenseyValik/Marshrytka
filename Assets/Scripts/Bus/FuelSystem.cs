@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FuelSystem : MonoBehaviour
 {
-    private float currentFuel;
+    public float currentFuel;
 
     public float maxFuel = 100f;
 
@@ -14,6 +14,8 @@ public class FuelSystem : MonoBehaviour
     public Slider fuelIndicatorSlider;
 
     public Text fuelIndicatorText;
+
+    public float lightningPower = 30f;
     void Start()
     {
         currentFuel = maxFuel;
@@ -31,12 +33,25 @@ public class FuelSystem : MonoBehaviour
     void UpdateUI()
     {
         fuelIndicatorSlider.value = currentFuel;
-        fuelIndicatorText.text = currentFuel + "%";
+        fuelIndicatorText.text = currentFuel.ToString("0") + "%";
 
         if (currentFuel <= 0)
         {
             currentFuel = 0;
             fuelIndicatorText.text = "Out of fuel!";
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Lightning"))
+        {
+            currentFuel += lightningPower;
+            if (currentFuel > maxFuel)
+                currentFuel = maxFuel;
+            UpdateUI();
+
+            Destroy(other.gameObject);
         }
     }
 }
