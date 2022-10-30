@@ -10,6 +10,8 @@ public class ScoreSystem : MonoBehaviour
     public float lastPosition;
 
     public Text scoreIndicatorText;
+
+    public bool isPlaying = true;
     void Start()
     {
         currentScore = 0;
@@ -26,6 +28,8 @@ public class ScoreSystem : MonoBehaviour
 
     public void UpdateScore()
     {
+        if (!isPlaying)
+            return;
         int difference = (int)(transform.position.z - lastPosition);
         print(difference);
         if (difference > 0)
