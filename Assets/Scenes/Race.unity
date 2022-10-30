@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402185, g: 0.49316466, b: 0.57223153, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -232,6 +232,8 @@ GameObject:
   - component: {fileID: 199903578}
   - component: {fileID: 199903582}
   - component: {fileID: 199903583}
+  - component: {fileID: 199903584}
+  - component: {fileID: 199903585}
   m_Layer: 0
   m_Name: carRoot
   m_TagString: Untagged
@@ -342,21 +344,6 @@ MonoBehaviour:
   currentScore: 0
   lastPosition: 0
   scoreIndicatorText: {fileID: 938085163}
-  groundPrefab: {fileID: 8158263667319137318, guid: d0438dd4a19f33f498aa8539da82711b, type: 3}
-  groundModelPrefab: {fileID: 1555244096}
-  player: {fileID: 199903577}
-  rangeSpawn: -180
-  trees:
-  - {fileID: 3645177786438761741, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  - {fileID: 1294352504588113098, guid: d588ad0e569486c42ab2d89ecbd6dcb9, type: 3}
-  - {fileID: 7246677109827515415, guid: 6913cbfc535987045b7b8ce384fe6ec1, type: 3}
-  crowd: 60
-  obstaclesPrefab:
-  - {fileID: 4338682696547472279, guid: 399cc87c17b0ffe40a1c4886cfcd2ed5, type: 3}
-  - {fileID: 4531372661920290845, guid: 1425b304361a5b54bada65aece1174a4, type: 3}
-  - {fileID: 7100533077037236339, guid: c98d7594fee318445be141d0ef20b7b0, type: 3}
-  firstObjects: {fileID: 1841661225}
-  treeSpawn: 30
 --- !u!82 &199903584
 AudioSource:
   m_ObjectHideFlags: 0
@@ -453,6 +440,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &199903585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199903577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4466cb84dd4e114db1adf0d9777ecb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundPrefab: {fileID: 1875214871}
+  groundModelPrefab: {fileID: 1555244096}
+  player: {fileID: 199903577}
+  rangeSpawn: -180
+  trees:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  crowd: 60
+  obstaclesPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  firstObjects: {fileID: 1841661225}
+  treeSpawn: 30
 --- !u!1001 &227278941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1635,11 +1649,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27f375a9d59029499ce004935098a44, type: 3}
---- !u!4 &515419297 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 444289677}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &522011209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1714,11 +1723,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e27f375a9d59029499ce004935098a44, type: 3}
   m_PrefabInstance: {fileID: 522011209}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &549391063 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 227278941}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &631209899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,10 +1765,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 9663.66
-    damper: 1546.1857
+    spring: 9663.658
+    damper: 1546.1854
     targetPosition: 0.5
-  m_SuspensionDistance: 0.1962
+  m_SuspensionDistance: 0.19620003
   m_ForceAppPointDistance: 1.5900002
   m_Mass: 80
   m_WheelDampingRate: 0.5
@@ -1781,11 +1785,6 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
---- !u!4 &649609813 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 317787654}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &678776655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,10 +1827,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 15336.341
-    damper: 2453.8145
+    spring: 15336.337
+    damper: 2453.8142
     targetPosition: 0.5
-  m_SuspensionDistance: 0.1962
+  m_SuspensionDistance: 0.19620003
   m_ForceAppPointDistance: 1.5900002
   m_Mass: 80
   m_WheelDampingRate: 0.5
@@ -2386,11 +2385,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8158263667319137319, guid: d0438dd4a19f33f498aa8539da82711b, type: 3}
   m_PrefabInstance: {fileID: 907664116}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &915956814 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 282697494}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &931205555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2849,11 +2843,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
---- !u!4 &1016085637 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 1016085636}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1071366850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3007,11 +2996,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
---- !u!4 &1246702743 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 1212551561}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1247768141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3633,11 +3617,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
---- !u!4 &1424283998 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 1424283997}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1452392917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3781,11 +3760,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
---- !u!4 &1486207091 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 1486207090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1512842676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4021,11 +3995,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
---- !u!4 &1543717390 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 1543717389}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1551548883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4179,11 +4148,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
---- !u!4 &1569311422 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 1569311421}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1597152280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4327,11 +4291,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
---- !u!4 &1652438062 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 1652438061}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1662026346
 GameObject:
   m_ObjectHideFlags: 0
@@ -4583,11 +4542,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e27f375a9d59029499ce004935098a44, type: 3}
   m_PrefabInstance: {fileID: 1674640960}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1692942638 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 507548317}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1698401316
 PrefabInstance:
@@ -4963,11 +4917,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e27f375a9d59029499ce004935098a44, type: 3}
   m_PrefabInstance: {fileID: 1781029084}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1787541921 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 499977219}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1807011736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4978,7 +4927,7 @@ PrefabInstance:
     - target: {fileID: 2486341664855875306, guid: aea58885f8073b446ad944595c4845ad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 29056e1f99fc77a43bc0e73fa143008a, type: 2}
+      objectReference: {fileID: 2100000, guid: a950e9b4d6053b7458d3f1d8f0811506, type: 2}
     - target: {fileID: 6464047424508507460, guid: aea58885f8073b446ad944595c4845ad, type: 3}
       propertyPath: m_Name
       value: WheelWrapper
@@ -5131,7 +5080,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1555244097}
+  - {fileID: 907664117}
   - {fileID: 227278942}
   - {fileID: 282697495}
   - {fileID: 1827277625}
@@ -5140,54 +5089,50 @@ Transform:
   - {fileID: 444289678}
   - {fileID: 1551548884}
   - {fileID: 452679383}
+  - {fileID: 1555244097}
   - {fileID: 499977220}
-  - {fileID: 507548318}
   - {fileID: 505088922}
   - {fileID: 522011210}
   - {fileID: 1284262183}
-  - {fileID: 1016085637}
-  - {fileID: 1722660063}
+  - {fileID: 507548318}
+  - {fileID: 183551939}
   - {fileID: 1674640961}
-  - {fileID: 1212551562}
+  - {fileID: 1101629197}
   - {fileID: 1247768142}
-  - {fileID: 1424283998}
+  - {fileID: 1165908676}
+  - {fileID: 1722660063}
   - {fileID: 836283831}
-  - {fileID: 1486207091}
+  - {fileID: 1318980180}
   - {fileID: 817290629}
   - {fileID: 1452392918}
   - {fileID: 1512842677}
   - {fileID: 998260181}
-  - {fileID: 1539314506}
+  - {fileID: 1540952848}
   - {fileID: 436205525}
-  - {fileID: 1543717390}
   - {fileID: 415403643}
   - {fileID: 1071366851}
   - {fileID: 1260236253}
-  - {fileID: 1569311422}
   - {fileID: 957601191}
+  - {fileID: 250595920}
   - {fileID: 801637024}
   - {fileID: 931205556}
   - {fileID: 999242303}
-  - {fileID: 1597152281}
+  - {fileID: 143517201}
   - {fileID: 1378646630}
   - {fileID: 783945075}
-  - {fileID: 1652438062}
+  - {fileID: 1597152281}
   - {fileID: 442079810}
   - {fileID: 1772051762}
+  - {fileID: 988945775}
   - {fileID: 1708973049}
   - {fileID: 1781029085}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1845144069 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 1247768141}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1898392565 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169652995029723063, guid: 7a0b8de80527eb541841065aa0add1f4, type: 3}
-  m_PrefabInstance: {fileID: 1539314505}
+--- !u!1 &1875214871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8158263667319137318, guid: d0438dd4a19f33f498aa8539da82711b, type: 3}
+  m_PrefabInstance: {fileID: 907664116}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1944749420
 GameObject:
@@ -5375,10 +5320,10 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 10983.53
-    damper: 1757.3649
+    spring: 10983.533
+    damper: 1757.3652
     targetPosition: 0.5
-  m_SuspensionDistance: 0.19620003
+  m_SuspensionDistance: 0.1962
   m_ForceAppPointDistance: 1.5900002
   m_Mass: 80
   m_WheelDampingRate: 0.5
