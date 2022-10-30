@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 [ExecuteInEditMode()]
@@ -19,18 +20,36 @@ public class EasySuspension : MonoBehaviour {
 
     FuelSystem fuelSystem;
     ScoreSystem scoreSystem;
+    public Text maxScoreText;
+    public Text currentScoreText;
+    public GameObject restartMenu;
     void Awake()
-    {
+    {  
         rigidBody = GetComponent<Rigidbody>();
         fuelSystem = GetComponent<FuelSystem>();
         scoreSystem = GetComponent<ScoreSystem>();
     }
 
+    private void Start()
+    {
+        restartMenu.SetActive(false);
+        scoreSystem.isPlaying = true;
+    }
     void Update () {
+        print(scoreSystem.isPlaying);
         UpdateFuel();
         if (fuelSystem.currentFuel <= 0)
         {
-            scoreSystem.SaveScoreIfHigher(scoreSystem.currentScore);
+            if (!scoreSystem.isPlaying)
+                return;
+            int curScore = scoreSystem.currentScore;
+            scoreSystem.SaveScoreIfHigher(curScore);
+            int maxScore = scoreSystem.GetMaxScore();
+            maxScoreText.text = "Max score: " + maxScore;
+            currentScoreText.text = "Your score: " + curScore;
+            restartMenu.SetActive(true);
+            scoreSystem.isPlaying = false;
+            return;
         }
         // work out the stiffness and damper parameters based on the better spring model
         foreach (WheelCollider wc in GetComponentsInChildren<WheelCollider>()) {
