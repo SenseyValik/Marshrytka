@@ -336,9 +336,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 199903577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4466cb84dd4e114db1adf0d9777ecb7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4676c1c52eae9d2478da0d0160ea29f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentScore: 0
+  lastPosition: 0
+  scoreIndicatorText: {fileID: 938085163}
   groundPrefab: {fileID: 8158263667319137318, guid: d0438dd4a19f33f498aa8539da82711b, type: 3}
   groundModelPrefab: {fileID: 1555244096}
   player: {fileID: 199903577}
@@ -354,21 +357,6 @@ MonoBehaviour:
   - {fileID: 7100533077037236339, guid: c98d7594fee318445be141d0ef20b7b0, type: 3}
   firstObjects: {fileID: 1841661225}
   treeSpawn: 30
---- !u!114 &199903583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199903577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4676c1c52eae9d2478da0d0160ea29f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScore: 0
-  lastPosition: 0
-  scoreIndicatorText: {fileID: 938085163}
 --- !u!82 &199903584
 AudioSource:
   m_ObjectHideFlags: 0
